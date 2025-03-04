@@ -7,8 +7,9 @@ const getDetail = (id:number|string) => unstable_cache(async()=>{
 }, [`detail ${id}`], {revalidate:2})
 
 
-export default async function ProductDetailPage(){
+export default async function ProductDetailPage({ params }: { params: { id: string } }){
   const detail = await getDetail(1)()
+  console.log(params.id)
   console.log(detail)
   return (
     <div>
